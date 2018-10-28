@@ -1,0 +1,71 @@
+#include "stdafx.h"
+#include <vector>
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	float buf = 0;
+	std::vector<float> data_in, data_out;
+	std::ifstream file_in;
+	std::ofstream file_out;
+
+	file_in.open("data_in.txt", ios_base::in);
+	if (!file_in.is_open())
+	{
+		cout << "Error open input file!\n";
+		system("pause");
+		return 1;
+	}
+	while (buf != EOF)
+	{
+		file_in >> buf;
+		data_in.push_back(buf);
+	}
+	file_out.open("data_out.txt", ios_base::out | ios_base::trunc);
+	if (!file_out.is_open())
+	{
+		cout << "Error open output file\n";
+		system("pause");
+		return 1;
+	}
+
+	for (int i = 0; i < (int)data_in.size(); i++)
+	{
+		cout << data_in[i] << "\n";
+	}
+
+	file_in.close();
+	file_out.close();
+	
+	system("pause");
+	return 0;
+}
+
+
+
+#include <vector>
+#include <string>
+#include <iostream>
+
+
+
+int main(int argc, char *argv[])
+{
+	if (argc == 3)
+	{
+		std::cout << "++\n";
+
+	}
+	else {
+		std::cout << "Error. Write file path\n";
+		system("pause");
+		return 1;
+	}
+	
+	system("pause");
+	return 0;
+}
